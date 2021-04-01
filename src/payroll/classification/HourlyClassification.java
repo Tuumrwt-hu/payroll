@@ -14,4 +14,9 @@ public class HourlyClassification extends PaymentClassification {
 		return hourlyRate;
 	}
 
+	public TimeCard getTimeCardOfDate(String date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
