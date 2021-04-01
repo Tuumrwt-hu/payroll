@@ -22,4 +22,9 @@ public class Employee {
 		return null;
 	}
 
+	public PaymentMethod getPaymentMethod() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
