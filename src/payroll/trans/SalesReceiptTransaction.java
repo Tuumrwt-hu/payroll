@@ -6,6 +6,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.SalesReceipt;
+import payroll.exception.NotCommissionedClassificationException;
 
 public class SalesReceiptTransaction implements Transaction {
 
@@ -24,9 +25,13 @@ public class SalesReceiptTransaction implements Transaction {
 		Employee e = PayrollDatabase.getEmployee(empId);
 		if (e != null) {
 			PaymentClassification pc = e.getPaymentClassification();
-			CommissionedClassification cc = (CommissionedClassification) pc;
-			SalesReceipt sr = new SalesReceipt(date, amount);
-			cc.addSalesReceipt(sr);
+			if (pc instanceof CommissionedClassification) {
+				CommissionedClassification cc = (CommissionedClassification) pc;
+				SalesReceipt sr = new SalesReceipt(date, amount);
+				cc.addSalesReceipt(sr);
+			} else {
+				throw new NotCommissionedClassificationException();
+			}
 		}
 	}
 
