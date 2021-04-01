@@ -5,8 +5,14 @@ import payroll.method.HoldMethod;
 
 public class Employee {
 
+	private int empId;
+	private String name;
+	private String address;
+
 	public Employee(int empId, String name, String address) {
-		// TODO Auto-generated constructor stub
+		this.empId = empId;
+		this.name = name;
+		this.address = address;
 	}
 
 	public Object getEmpId() {
