@@ -2,18 +2,20 @@ package payroll.classification;
 
 public class SalesReceipt {
 
+	private String date;
+	private double amount;
+
 	public SalesReceipt(String date, double amount) {
-		// TODO Auto-generated constructor stub
+		this.date = date;
+		this.amount = amount;
 	}
 
-	public Object getDate() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getDate() {
+		return date;
 	}
 
 	public double getAmount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return amount;
 	}
 
 }
