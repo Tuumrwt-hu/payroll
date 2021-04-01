@@ -1,11 +1,15 @@
 package payroll.classification;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import payroll.PaymentClassification;
 
 public class CommissionedClassification extends PaymentClassification {
 
 	private double salary;
 	private double commissionRate;
+	private Map<String, SalesReceipt> salesReceipts = new LinkedHashMap<>();
 
 	public CommissionedClassification(double salary, double commissionRate) {
 		this.salary = salary;
@@ -21,13 +25,11 @@ public class CommissionedClassification extends PaymentClassification {
 	}
 
 	public SalesReceipt getSalesReceiptOfDate(String date) {
-		// TODO Auto-generated method stub
-		return null;
+		return salesReceipts.get(date);
 	}
 
 	public void addSalesReceipt(SalesReceipt sr) {
-		// TODO Auto-generated method stub
-		
+		salesReceipts.put(sr.getDate(), sr);
 	}
 
 }
