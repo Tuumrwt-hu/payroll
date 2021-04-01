@@ -24,7 +24,7 @@ public class AddHourlyEmployeeTransaction implements Transaction {
 	public void execute() {
 		Employee e = new Employee(empId, name, address);
 		e.setPaymentClassification(new HourlyClassification(hourlyRate));
-		e.setPaymentMethod(new HoldMethod())
+		e.setPaymentMethod(new HoldMethod());
 		PayrollDatabase.saveEmployee(e);
 	}
 
