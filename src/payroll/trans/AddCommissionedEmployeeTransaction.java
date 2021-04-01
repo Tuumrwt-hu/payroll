@@ -5,9 +5,14 @@ import payroll.Transaction;
 
 public class AddCommissionedEmployeeTransaction extends AddEmployeeTransaction implements Transaction {
 
+	private double salary;
+	private double commissionRate;
+
 	public AddCommissionedEmployeeTransaction(int empId, String name, String address, double salary,
 			double commissionRate) {
-		// TODO Auto-generated constructor stub
+		super(empId, name, address);
+		this.salary = salary;
+		this.commissionRate = commissionRate;
 	}
 
 	@Override
