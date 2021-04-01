@@ -11,6 +11,7 @@ import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.SalesReceipt;
 import payroll.trans.AddCommissionedEmployeeTransaction;
+import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.SalesReceiptTransaction;
 
 class SalesReceiptTests {
@@ -60,6 +61,17 @@ class SalesReceiptTests {
 		SalesReceipt salesReceipt2 = cc.getSalesReceiptOfDate(date2);
 		assertEquals(date2, salesReceipt2.getDate());
 		assertEquals(amount2, salesReceipt2.getAmount(), 0.001);
+	}
+	
+	@Test
+	void testOneSalesReceiptToHourlyEmployee() {
+		int empId = 4003;
+		new AddHourlyEmployeeTransaction(empId, "Bill", "Home", 12.5).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		assertThrows(NotCommissionedClassificationException.class, ()->{
+			new SalesReceiptTransaction(empId, "2018-03-14", 1000).execute();
+		});
 	}
 
 }
