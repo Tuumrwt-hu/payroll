@@ -2,18 +2,20 @@ package payroll.classification;
 
 public class TimeCard {
 
+	private String date;
+	private double hours;
+
 	public TimeCard(String date, double hours) {
-		// TODO Auto-generated constructor stub
+		this.date = date;
+		this.hours = hours;
 	}
 
-	public Object getDate() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getDate() {
+		return date;
 	}
 
 	public double getHours() {
-		// TODO Auto-generated method stub
-		return 0;
+		return hours;
 	}
 
 }
