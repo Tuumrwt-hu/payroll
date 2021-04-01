@@ -7,4 +7,9 @@ public class PayrollDatabase {
 		return null;
 	}
 
+	public static void saveEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
