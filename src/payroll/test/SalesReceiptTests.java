@@ -10,6 +10,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.trans.AddCommissionedEmployeeTransaction;
+import payroll.trans.SalesReceiptTransaction;
 
 class SalesReceiptTests {
 
