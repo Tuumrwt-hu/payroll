@@ -17,4 +17,9 @@ public class Employee {
 		return null;
 	}
 
+	public PaymentClassification getPaymentClassification() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
