@@ -23,9 +23,13 @@ public class AddSalariedEmployeeTransaction implements Transaction {
 	@Override
 	public void execute() {
 		Employee e = new Employee(empId, name, address);
-		e.setPaymentClassification(new SalariedClassification(salary));
+		e.setPaymentClassification(getPaymentClassification());
 		e.setPaymentMethod(new HoldMethod());
 		PayrollDatabase.saveEmployee(e);
+	}
+
+	private SalariedClassification getPaymentClassification() {
+		return new SalariedClassification(salary);
 	}
 
 }
