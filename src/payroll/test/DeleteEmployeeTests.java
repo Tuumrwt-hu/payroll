@@ -23,5 +23,16 @@ class DeleteEmployeeTests {
 		Employee e = PayrollDatabase.getEmployee(empId);
 		assertNull(e);
 	}
+	
+	@Test
+	void deleteEmployeeNotExists() {
+		int empId = 200200;
+		Employee e = PayrollDatabase.getEmployee(empId);
+		assertNull(e);
+
+		assertThrows(NoSuchEmployeeException.class, () -> {
+			new DeleteEmployeeTransaction(empId).execute();
+		});
+	}
 
 }
