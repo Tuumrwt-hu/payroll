@@ -10,6 +10,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.HourlyClassification;
 import payroll.classification.TimeCard;
+import payroll.exception.NoSuchEmployeeException;
 import payroll.exception.NotHourlyClassificationException;
 import payroll.trans.AddCommissionedEmployeeTransaction;
 import payroll.trans.AddHourlyEmployeeTransaction;
@@ -89,6 +90,15 @@ class TimeCardTests {
 		assertNotNull(PayrollDatabase.getEmployee(empId));
 
 		assertThrows(NotHourlyClassificationException.class, () -> {
+			new TimeCardTransaction(empId, "2018-03-14", 6.0).execute();
+		});
+	}
+	
+	@Test
+	void testTimeCardToNoSuchEmployee() {
+		int empId = 300500;
+		assertNull(PayrollDatabase.getEmployee(empId));
+		assertThrows(NoSuchEmployeeException.class, () -> {
 			new TimeCardTransaction(empId, "2018-03-14", 6.0).execute();
 		});
 	}
