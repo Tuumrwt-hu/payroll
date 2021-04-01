@@ -9,6 +9,7 @@ import payroll.PaymentClassification;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
+import payroll.classification.SalesReceipt;
 import payroll.trans.AddCommissionedEmployeeTransaction;
 import payroll.trans.SalesReceiptTransaction;
 
