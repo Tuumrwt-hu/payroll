@@ -10,6 +10,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.SalesReceipt;
+import payroll.exception.NoSuchEmployeeException;
 import payroll.exception.NotCommissionedClassificationException;
 import payroll.trans.AddCommissionedEmployeeTransaction;
 import payroll.trans.AddHourlyEmployeeTransaction;
@@ -83,6 +84,16 @@ class SalesReceiptTests {
 		assertNotNull(PayrollDatabase.getEmployee(empId));
 		
 		assertThrows(NotCommissionedClassificationException.class, ()->{
+			new SalesReceiptTransaction(empId, "2018-03-14", 1000).execute();
+		});
+	}
+	
+	@Test
+	void testSalesReceiptNoSuchEmployee() {
+		int empId = 400555;
+		assertNull(PayrollDatabase.getEmployee(empId));
+		
+		assertThrows(NoSuchEmployeeException.class, ()->{
 			new SalesReceiptTransaction(empId, "2018-03-14", 1000).execute();
 		});
 	}
