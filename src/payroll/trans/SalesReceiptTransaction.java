@@ -4,8 +4,14 @@ import payroll.Transaction;
 
 public class SalesReceiptTransaction implements Transaction {
 
+	private int empId;
+	private String date;
+	private double amount;
+
 	public SalesReceiptTransaction(int empId, String date, double amount) {
-		// TODO Auto-generated constructor stub
+		this.empId = empId;
+		this.date = date;
+		this.amount = amount;
 	}
 
 	@Override
