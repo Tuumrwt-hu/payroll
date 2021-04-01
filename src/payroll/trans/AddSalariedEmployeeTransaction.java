@@ -1,6 +1,7 @@
 package payroll.trans;
 
 import payroll.Employee;
+import payroll.PaymentClassification;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.SalariedClassification;
@@ -28,7 +29,7 @@ public class AddSalariedEmployeeTransaction implements Transaction {
 		PayrollDatabase.saveEmployee(e);
 	}
 
-	private SalariedClassification getPaymentClassification() {
+	private PaymentClassification getPaymentClassification() {
 		return new SalariedClassification(salary);
 	}
 
