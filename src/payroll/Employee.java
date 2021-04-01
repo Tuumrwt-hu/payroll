@@ -2,6 +2,10 @@ package payroll;
 
 public class Employee {
 
+	public Employee(int empId, String name, String address) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Object getEmpId() {
 		// TODO Auto-generated method stub
 		return null;
