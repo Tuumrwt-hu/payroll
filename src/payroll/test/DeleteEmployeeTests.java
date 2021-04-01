@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import payroll.Employee;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
+import payroll.exception.NoSuchEmployeeException;
 import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.DeleteEmployeeTransaction;
 
