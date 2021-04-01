@@ -6,6 +6,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.SalesReceipt;
+import payroll.exception.NoSuchEmployeeException;
 import payroll.exception.NotCommissionedClassificationException;
 
 public class SalesReceiptTransaction implements Transaction {
@@ -32,6 +33,8 @@ public class SalesReceiptTransaction implements Transaction {
 			} else {
 				throw new NotCommissionedClassificationException();
 			}
+		} else {
+			throw new NoSuchEmployeeException();
 		}
 	}
 
