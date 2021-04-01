@@ -1,5 +1,7 @@
 package payroll;
 
+import payroll.classification.HourlyClassification;
+
 public class Employee {
 
 	public Employee(int empId, String name, String address) {
@@ -29,6 +31,11 @@ public class Employee {
 	public PaymentMethod getPaymentMethod() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setPaymentClassification(HourlyClassification hourlyClassification) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
