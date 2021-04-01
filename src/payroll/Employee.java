@@ -8,6 +8,8 @@ public class Employee {
 	private int empId;
 	private String name;
 	private String address;
+	private PaymentClassification paymentClassification;
+	private PaymentMethod paymentMethod;
 
 	public Employee(int empId, String name, String address) {
 		this.empId = empId;
