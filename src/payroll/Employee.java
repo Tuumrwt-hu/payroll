@@ -30,13 +30,11 @@ public class Employee {
 	}
 
 	public PaymentClassification getPaymentClassification() {
-		// TODO Auto-generated method stub
-		return null;
+		return paymentClassification;
 	}
 
 	public PaymentMethod getPaymentMethod() {
-		// TODO Auto-generated method stub
-		return null;
+		return paymentMethod;
 	}
 
 	public void setPaymentClassification(HourlyClassification hourlyClassification) {
