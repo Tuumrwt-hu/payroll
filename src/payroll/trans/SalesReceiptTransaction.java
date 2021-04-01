@@ -1,6 +1,11 @@
 package payroll.trans;
 
+import payroll.Employee;
+import payroll.PaymentClassification;
+import payroll.PayrollDatabase;
 import payroll.Transaction;
+import payroll.classification.CommissionedClassification;
+import payroll.classification.SalesReceipt;
 
 public class SalesReceiptTransaction implements Transaction {
 
@@ -16,8 +21,13 @@ public class SalesReceiptTransaction implements Transaction {
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-
+		Employee e = PayrollDatabase.getEmployee(empId);
+		if (e != null) {
+			PaymentClassification pc = e.getPaymentClassification();
+			CommissionedClassification cc = (CommissionedClassification) pc;
+			SalesReceipt sr = new SalesReceipt(date, amount);
+			cc.addSalesReceipt(sr);
+		}
 	}
 
 }
