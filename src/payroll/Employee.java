@@ -1,8 +1,5 @@
 package payroll;
 
-import payroll.classification.HourlyClassification;
-import payroll.method.HoldMethod;
-
 public class Employee {
 
 	private int empId;
@@ -37,14 +34,12 @@ public class Employee {
 		return paymentMethod;
 	}
 
-	public void setPaymentClassification(HourlyClassification hourlyClassification) {
-		// TODO Auto-generated method stub
-		
+	public void setPaymentClassification(PaymentClassification paymentClassification) {
+		this.paymentClassification = paymentClassification;
 	}
 
-	public void setPaymentMethod(HoldMethod holdMethod) {
-		// TODO Auto-generated method stub
-		
+	public void setPaymentMethod(PaymentMethod paymentMethod) {
+		this.paymentMethod = paymentMethod;
 	}
 
 }
