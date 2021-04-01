@@ -10,6 +10,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.HourlyClassification;
 import payroll.classification.TimeCard;
+import payroll.exception.NotHourlyClassificationException;
 import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.TimeCardTransaction;
