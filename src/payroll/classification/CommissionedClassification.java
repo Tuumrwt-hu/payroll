@@ -20,4 +20,9 @@ public class CommissionedClassification extends PaymentClassification {
 		return commissionRate;
 	}
 
+	public SalesReceipt getSalesReceiptOfDate(String date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
