@@ -6,6 +6,7 @@ import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.HourlyClassification;
 import payroll.classification.TimeCard;
+import payroll.exception.NoSuchEmployeeException;
 import payroll.exception.NotHourlyClassificationException;
 
 public class TimeCardTransaction implements Transaction {
@@ -32,6 +33,8 @@ public class TimeCardTransaction implements Transaction {
 			} else {
 				throw new NotHourlyClassificationException();
 			}
+		} else {
+			throw new NoSuchEmployeeException();
 		}
 	}
 
