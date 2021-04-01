@@ -25,4 +25,9 @@ public class CommissionedClassification extends PaymentClassification {
 		return null;
 	}
 
+	public void addSalesReceipt(SalesReceipt sr) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
