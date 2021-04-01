@@ -11,6 +11,7 @@ import payroll.Transaction;
 import payroll.classification.HourlyClassification;
 import payroll.classification.TimeCard;
 import payroll.exception.NotHourlyClassificationException;
+import payroll.trans.AddCommissionedEmployeeTransaction;
 import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.TimeCardTransaction;
@@ -74,6 +75,17 @@ class TimeCardTests {
 	void testTimeCardToSalariedEmployee() {
 		int empId = 3003;
 		new AddSalariedEmployeeTransaction(empId, "", "", 3456.7).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+
+		assertThrows(NotHourlyClassificationException.class, () -> {
+			new TimeCardTransaction(empId, "2018-03-14", 6.0).execute();
+		});
+	}
+
+	@Test
+	void testTimeCardToCommissionedEmployee() {
+		int empId = 3004;
+		new AddCommissionedEmployeeTransaction(empId, "", "", 3456.7, 0.02).execute();
 		assertNotNull(PayrollDatabase.getEmployee(empId));
 
 		assertThrows(NotHourlyClassificationException.class, () -> {
