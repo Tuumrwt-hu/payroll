@@ -19,4 +19,9 @@ public class HourlyClassification extends PaymentClassification {
 		return null;
 	}
 
+	public void addTimeCard(TimeCard tc) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
