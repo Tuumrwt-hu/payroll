@@ -35,5 +35,31 @@ class SalesReceiptTests {
 		assertEquals(date, sr.getDate());
 		assertEquals(amount, sr.getAmount(), 0.001);
 	}
+	
+	@Test
+	void testTwoSalesReceiptToCommissionedEmployee() {
+		int empId = 4002;
+		new AddCommissionedEmployeeTransaction(empId, "Bill", "Home", 3456.0, 0.02).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		String date1 = "2018-03-14";
+		double amount1 = 1000;
+		new SalesReceiptTransaction(empId, date1, amount1).execute();
+		String date2 = "2018-03-15";
+		double amount2 = 2000;
+		new SalesReceiptTransaction(empId, date2, amount2).execute();
+		
+		Employee e = PayrollDatabase.getEmployee(empId);
+		PaymentClassification pc = e.getPaymentClassification();
+		assertTrue(pc instanceof CommissionedClassification);
+		
+		CommissionedClassification cc = (CommissionedClassification) pc;
+		SalesReceipt salesReceipt1 = cc.getSalesReceiptOfDate(date1);
+		assertEquals(date1, salesReceipt1.getDate());
+		assertEquals(amount1, salesReceipt1.getAmount(), 0.001);
+		SalesReceipt salesReceipt2 = cc.getSalesReceiptOfDate(date2);
+		assertEquals(date2, salesReceipt2.getDate());
+		assertEquals(amount2, salesReceipt2.getAmount(), 0.001);
+	}
 
 }
