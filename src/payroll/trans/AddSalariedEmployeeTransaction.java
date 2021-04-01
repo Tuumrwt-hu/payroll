@@ -1,17 +1,11 @@
 package payroll.trans;
 
-import payroll.Employee;
 import payroll.PaymentClassification;
-import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.SalariedClassification;
-import payroll.method.HoldMethod;
 
-public class AddSalariedEmployeeTransaction implements Transaction {
+public class AddSalariedEmployeeTransaction extends AddEmployeeTransaction implements Transaction {
 
-	private int empId;
-	private String name;
-	private String address;
 	private double salary;
 
 	public AddSalariedEmployeeTransaction(int empId, String name, String address, double salary) {
@@ -19,14 +13,6 @@ public class AddSalariedEmployeeTransaction implements Transaction {
 		this.name = name;
 		this.address = address;
 		this.salary = salary;
-	}
-
-	@Override
-	public void execute() {
-		Employee e = new Employee(empId, name, address);
-		e.setPaymentClassification(getPaymentClassification());
-		e.setPaymentMethod(new HoldMethod());
-		PayrollDatabase.saveEmployee(e);
 	}
 
 	protected PaymentClassification getPaymentClassification() {
