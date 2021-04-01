@@ -1,6 +1,11 @@
 package payroll.trans;
 
+import payroll.Employee;
+import payroll.PaymentClassification;
+import payroll.PayrollDatabase;
 import payroll.Transaction;
+import payroll.classification.HourlyClassification;
+import payroll.classification.TimeCard;
 
 public class TimeCardTransaction implements Transaction {
 
@@ -16,8 +21,13 @@ public class TimeCardTransaction implements Transaction {
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-
+		Employee e = PayrollDatabase.getEmployee(empId);
+		if (e != null) {
+			PaymentClassification pc = e.getPaymentClassification();
+			HourlyClassification hc = (HourlyClassification) pc;
+			TimeCard tc = new TimeCard(date, hours);
+			hc.addTimeCard(tc);
+		}
 	}
 
 }
