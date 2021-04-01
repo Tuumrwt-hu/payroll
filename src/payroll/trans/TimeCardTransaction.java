@@ -4,8 +4,14 @@ import payroll.Transaction;
 
 public class TimeCardTransaction implements Transaction {
 
+	private int empId;
+	private String date;
+	private double hours;
+
 	public TimeCardTransaction(int empId, String date, double hours) {
-		// TODO Auto-generated constructor stub
+		this.empId = empId;
+		this.date = date;
+		this.hours = hours;
 	}
 
 	@Override
