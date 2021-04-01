@@ -1,6 +1,7 @@
 package payroll;
 
 import payroll.classification.HourlyClassification;
+import payroll.method.HoldMethod;
 
 public class Employee {
 
@@ -34,6 +35,11 @@ public class Employee {
 	}
 
 	public void setPaymentClassification(HourlyClassification hourlyClassification) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPaymentMethod(HoldMethod holdMethod) {
 		// TODO Auto-generated method stub
 		
 	}
