@@ -15,19 +15,16 @@ public class Employee {
 		this.address = address;
 	}
 
-	public Object getEmpId() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getEmpId() {
+		return empId;
 	}
 
-	public Object getName() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getName() {
+		return name;
 	}
 
-	public Object getAddress() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getAddress() {
+		return address;
 	}
 
 	public PaymentClassification getPaymentClassification() {
