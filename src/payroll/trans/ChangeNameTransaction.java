@@ -8,7 +8,7 @@ public class ChangeNameTransaction extends ChangeEmployeeTransaction implements 
 	private String newName;
 
 	public ChangeNameTransaction(int empId, String newName) {
-		this.empId = empId;
+		super(empId);
 		this.newName = newName;
 	}
 

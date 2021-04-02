@@ -8,7 +8,7 @@ public class ChangeAddressTransaction extends ChangeEmployeeTransaction implemen
 	private String newAddress;
 
 	public ChangeAddressTransaction(int empId, String newAddress) {
-		this.empId = empId;
+		super(empId);
 		this.newAddress = newAddress;
 	}
 
