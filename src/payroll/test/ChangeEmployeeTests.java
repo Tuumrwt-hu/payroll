@@ -11,6 +11,7 @@ import payroll.Transaction;
 import payroll.classification.HourlyClassification;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.ChangeAddressTransaction;
+import payroll.trans.ChangeHourlyTransaction;
 import payroll.trans.ChangeNameTransaction;
 
 //Test for
