@@ -4,8 +4,12 @@ import payroll.Transaction;
 
 public class ChangeNameTransaction implements Transaction {
 
+	private int empId;
+	private String newName;
+
 	public ChangeNameTransaction(int empId, String newName) {
-		// TODO Auto-generated constructor stub
+		this.empId = empId;
+		this.newName = newName;
 	}
 
 	@Override
