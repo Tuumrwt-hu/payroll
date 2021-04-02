@@ -16,8 +16,7 @@ public class ChangeDirectTransaction extends ChangeEmployeeTransaction implement
 
 	@Override
 	protected void doChange(Employee e) {
-		// TODO Auto-generated method stub
-
+		e.setPaymentMethod(new DirectMethod(bank, account));
 	}
 
 }
