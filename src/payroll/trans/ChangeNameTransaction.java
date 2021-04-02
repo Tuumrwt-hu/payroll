@@ -1,12 +1,10 @@
 package payroll.trans;
 
 import payroll.Employee;
-import payroll.PayrollDatabase;
 import payroll.Transaction;
 
-public class ChangeNameTransaction implements Transaction {
+public class ChangeNameTransaction extends ChangeEmployeeTransaction implements Transaction {
 
-	private int empId;
 	private String newName;
 
 	public ChangeNameTransaction(int empId, String newName) {
@@ -15,13 +13,6 @@ public class ChangeNameTransaction implements Transaction {
 	}
 
 	@Override
-	public void execute() {
-		Employee e = PayrollDatabase.getEmployee(empId);
-		if (e != null) {
-			doChange(e);
-		}
-	}
-
 	protected void doChange(Employee e) {
 		e.setName(newName);
 	}

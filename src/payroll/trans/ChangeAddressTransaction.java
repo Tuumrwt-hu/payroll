@@ -1,25 +1,15 @@
 package payroll.trans;
 
 import payroll.Employee;
-import payroll.PayrollDatabase;
 import payroll.Transaction;
 
-public class ChangeAddressTransaction implements Transaction {
+public class ChangeAddressTransaction extends ChangeEmployeeTransaction implements Transaction {
 
-	private int empId;
 	private String newAddress;
 
 	public ChangeAddressTransaction(int empId, String newAddress) {
 		this.empId = empId;
 		this.newAddress = newAddress;
-	}
-
-	@Override
-	public void execute() {
-		Employee e = PayrollDatabase.getEmployee(empId);
-		if (e != null) {
-			doChange(e);
-		}
 	}
 
 	protected void doChange(Employee e) {
