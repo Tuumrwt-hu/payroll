@@ -2,6 +2,7 @@ package payroll.trans;
 
 import payroll.PaymentMethod;
 import payroll.Transaction;
+import payroll.method.MailMethod;
 
 public class ChangeMailTransaction extends ChangeMethodTransaction implements Transaction {
 
@@ -14,8 +15,7 @@ public class ChangeMailTransaction extends ChangeMethodTransaction implements Tr
 
 	@Override
 	protected PaymentMethod getMethod() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MailMethod(mailAddress);
 	}
 
 }
