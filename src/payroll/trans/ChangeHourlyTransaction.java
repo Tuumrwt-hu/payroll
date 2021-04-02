@@ -5,8 +5,11 @@ import payroll.Transaction;
 
 public class ChangeHourlyTransaction extends ChangeEmployeeTransaction implements Transaction {
 
+	private double hourlyRate;
+
 	public ChangeHourlyTransaction(int empId, double hourlyRate) {
-		// TODO Auto-generated constructor stub
+		super(empId);
+		this.hourlyRate = hourlyRate;
 	}
 
 	@Override
