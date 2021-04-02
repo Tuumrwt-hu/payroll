@@ -16,6 +16,7 @@ import payroll.classification.HourlyClassification;
 import payroll.classification.SalariedClassification;
 import payroll.method.DirectMethod;
 import payroll.method.HoldMethod;
+import payroll.method.MailMethod;
 import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.ChangeAddressTransaction;
