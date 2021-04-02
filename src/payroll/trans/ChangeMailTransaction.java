@@ -5,8 +5,11 @@ import payroll.Transaction;
 
 public class ChangeMailTransaction extends ChangeMethodTransaction implements Transaction {
 
+	private String mailAddress;
+
 	public ChangeMailTransaction(int empId, String mailAddress) {
-		// TODO Auto-generated constructor stub
+		super(empId);
+		this.mailAddress = mailAddress;
 	}
 
 	@Override
