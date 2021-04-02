@@ -19,9 +19,8 @@ public class PayrollDatabase {
 		employees.remove(empId);
 	}
 
-	public static Object listAllEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+	public static Iterable<Employee> listAllEmployees() {
+		return employees.values();
 	}
 
 }
