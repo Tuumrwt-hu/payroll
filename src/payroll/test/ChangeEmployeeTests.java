@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import payroll.Employee;
+import payroll.PaymentClassification;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
+import payroll.classification.HourlyClassification;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.ChangeAddressTransaction;
 import payroll.trans.ChangeNameTransaction;
@@ -66,6 +68,30 @@ class ChangeEmployeeTests {
 		
 		Employee employee = PayrollDatabase.getEmployee(empId);
 		assertEquals(newAddress, employee.getAddress());
+	}
+	
+	// Test for
+	// ChgEmp EmpId hourly hourly-rate	更改每小时报酬
+	@Test
+	void testChangeHourlyRate() {
+		int empId = 5003;
+		String name = "Bill";
+		String address = "Home";
+		double salary = 3000.0;
+		
+		new AddSalariedEmployeeTransaction(empId, name, address, salary).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		double hourlyRate = 12.5;
+		Transaction t = new ChangeHourlyTransaction(empId, hourlyRate);
+		t.execute();
+		
+		Employee employee = PayrollDatabase.getEmployee(empId);
+		assertNotNull(employee);
+		PaymentClassification pc = employee.getPaymentClassification();
+		assertTrue(pc instanceof HourlyClassification);
+		HourlyClassification hc = (HourlyClassification) pc;
+		assertEquals(hourlyRate, hc.getHourlyRate(), 0.001);
 	}
 
 }
