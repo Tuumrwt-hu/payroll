@@ -2,6 +2,7 @@ package payroll.trans;
 
 import payroll.Employee;
 import payroll.Transaction;
+import payroll.classification.HourlyClassification;
 
 public class ChangeHourlyTransaction extends ChangeEmployeeTransaction implements Transaction {
 
@@ -14,8 +15,7 @@ public class ChangeHourlyTransaction extends ChangeEmployeeTransaction implement
 
 	@Override
 	protected void doChange(Employee e) {
-		// TODO Auto-generated method stub
-
+		e.setPaymentClassification(new HourlyClassification(hourlyRate));
 	}
 
 }
