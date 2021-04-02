@@ -1,8 +1,6 @@
 package payroll.test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +12,7 @@ import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.HourlyClassification;
 import payroll.classification.SalariedClassification;
+import payroll.exception.NoSuchEmployeeException;
 import payroll.method.DirectMethod;
 import payroll.method.HoldMethod;
 import payroll.method.MailMethod;
@@ -225,6 +224,40 @@ class ChangeEmployeeTests {
 		assertTrue(pm instanceof MailMethod);
 		MailMethod mm = (MailMethod) pm;
 		assertEquals(mailAddress, mm.getAddress());
+	}
+	
+	// Test for
+	// EmpId 没有引用到真正的雇员，那么打印一条错误信息
+	@Test
+	void testChangeNoSuchEmployee() {
+		int empId = 500999;
+		
+		assertNull(PayrollDatabase.getEmployee(empId));
+		
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeNameTransaction(empId, "Bob").execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeAddressTransaction(empId, "new home").execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeHourlyTransaction(empId, 12.5).execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeSalariedTransaction(empId, 3000.0).execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeCommissionedTransaction(empId, 2000.0, 0.02).execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeHoldTransaction(empId).execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeDirectTransaction(empId, "ICBC", "123456789").execute();
+		});
+		assertThrows(NoSuchEmployeeException.class, ()->{
+			new ChangeMailTransaction(empId, "mail address").execute();
+		});
 	}
 
 }
