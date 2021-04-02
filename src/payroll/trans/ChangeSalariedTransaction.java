@@ -1,6 +1,7 @@
 package payroll.trans;
 
 import payroll.Employee;
+import payroll.PaymentClassification;
 import payroll.Transaction;
 import payroll.classification.SalariedClassification;
 
@@ -15,7 +16,11 @@ public class ChangeSalariedTransaction extends ChangeEmployeeTransaction impleme
 
 	@Override
 	protected void doChange(Employee e) {
-		e.setPaymentClassification(new SalariedClassification(salary));
+		e.setPaymentClassification(getPaymentClassification());
+	}
+
+	protected PaymentClassification getPaymentClassification() {
+		return new SalariedClassification(salary);
 	}
 
 }
