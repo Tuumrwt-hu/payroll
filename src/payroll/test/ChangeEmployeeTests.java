@@ -174,5 +174,30 @@ class ChangeEmployeeTests {
 		PaymentMethod pm = employee.getPaymentMethod();
 		assertTrue(pm instanceof HoldMethod);
 	}
+	
+	// Test for
+	// ChgEmp EmpId direct “bank” “account”	直接存款
+	@Test
+	void testChangeDirectMethod() {
+		int empId = 5007;
+		String name = "Bill";
+		String address = "Home";
+		double hourlyRate = 12.5;
+		
+		new AddHourlyEmployeeTransaction(empId, name, address, hourlyRate).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		String bank = "ICBC";
+		String account = "123456789";
+		Transaction t = new ChangeDirectTransaction(empId, bank, account);
+		t.execute();
+		Employee employee = PayrollDatabase.getEmployee(empId);
+		assertNotNull(employee);
+		PaymentMethod pm = employee.getPaymentMethod();
+		assertTrue(pm instanceof DirectMethod);
+		DirectMethod mm = (DirectMethod) pm;
+		assertEquals(bank, mm.getBank());
+		assertEquals(account, mm.getAccount());
+	}
 
 }
