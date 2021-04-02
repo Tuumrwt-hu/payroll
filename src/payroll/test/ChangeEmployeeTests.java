@@ -8,11 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import payroll.Employee;
 import payroll.PaymentClassification;
+import payroll.PaymentMethod;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.HourlyClassification;
 import payroll.classification.SalariedClassification;
+import payroll.method.HoldMethod;
 import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.ChangeAddressTransaction;
@@ -150,6 +152,26 @@ class ChangeEmployeeTests {
 		CommissionedClassification cc = (CommissionedClassification) pc;
 		assertEquals(salary, cc.getSalary(), 0.001);
 		assertEquals(commissionRate, cc.getCommissionRate(), 0.001);
+	}
+	
+	// Test for
+	// ChgEmp EmpId hold	持有支票
+	@Test
+	void testChangeHoldMethod() {
+		int empId = 5006;
+		String name = "Bill";
+		String address = "Home";
+		double hourlyRate = 12.5;
+		
+		new AddHourlyEmployeeTransaction(empId, name, address, hourlyRate).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		Transaction t = new ChangeHoldTransaction(empId);
+		t.execute();
+		Employee employee = PayrollDatabase.getEmployee(empId);
+		assertNotNull(employee);
+		PaymentMethod pm = employee.getPaymentMethod();
+		assertTrue(pm instanceof HoldMethod);
 	}
 
 }
