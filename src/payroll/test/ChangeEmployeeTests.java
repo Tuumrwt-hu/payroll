@@ -17,6 +17,7 @@ import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.ChangeAddressTransaction;
 import payroll.trans.ChangeHourlyTransaction;
 import payroll.trans.ChangeNameTransaction;
+import payroll.trans.ChangeSalariedTransaction;
 
 //Test for
 //用例5  更改雇员明细。
