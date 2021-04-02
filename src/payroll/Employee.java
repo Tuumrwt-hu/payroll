@@ -51,8 +51,15 @@ public class Employee {
 	}
 
 	public void pay(Paycheck paycheck) {
-		// TODO Auto-generated method stub
-		
+		// Fill in empId and name
+		paycheck.setEmpId(empId);
+		paycheck.setName(name);
+		// Fill in the amount
+		double amount = paymentClassification.calculatePay();
+		paycheck.setAmount(amount);
+		// Fill in the disposition
+		String disposition = paymentMethod.getDisposition();
+		paycheck.setDisposition(disposition);
 	}
 
 }
