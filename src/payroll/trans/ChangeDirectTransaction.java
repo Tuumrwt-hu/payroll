@@ -2,6 +2,7 @@ package payroll.trans;
 
 import payroll.Employee;
 import payroll.Transaction;
+import payroll.method.DirectMethod;
 
 public class ChangeDirectTransaction extends ChangeEmployeeTransaction implements Transaction {
 
