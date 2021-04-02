@@ -2,6 +2,7 @@ package payroll.trans;
 
 import payroll.Employee;
 import payroll.Transaction;
+import payroll.method.HoldMethod;
 
 public class ChangeHoldTransaction extends ChangeEmployeeTransaction implements Transaction {
 
@@ -11,8 +12,7 @@ public class ChangeHoldTransaction extends ChangeEmployeeTransaction implements 
 
 	@Override
 	protected void doChange(Employee e) {
-		// TODO Auto-generated method stub
-
+		e.setPaymentMethod(new HoldMethod());
 	}
 
 }
