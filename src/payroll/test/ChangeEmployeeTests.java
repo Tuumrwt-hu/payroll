@@ -4,6 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import payroll.Employee;
+import payroll.PayrollDatabase;
+import payroll.Transaction;
+import payroll.trans.AddSalariedEmployeeTransaction;
+
 //Test for
 //用例5  更改雇员明细。
 //执行ChgEmp操作时，系统会更改对应雇员记录的详细信息之一。该操的几种操作形式如下：
@@ -21,9 +26,24 @@ import org.junit.jupiter.api.Test;
 
 class ChangeEmployeeTests {
 
+	// Test for
+	// ChgEmp EmpId name “name”	更改雇员名
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testChangeName() {
+		int empId = 5001;
+		String name = "Bill";
+		String address = "Home";
+		double salary = 3000.0;
+		
+		new AddSalariedEmployeeTransaction(empId, name, address, salary).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		String newName = "Bob";
+		Transaction t = new ChangeNameTransaction(empId, newName);
+		t.execute();
+		
+		Employee employee = PayrollDatabase.getEmployee(empId);
+		assertEquals(newName, employee.getName());
 	}
 
 }
