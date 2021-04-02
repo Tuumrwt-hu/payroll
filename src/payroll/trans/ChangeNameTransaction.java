@@ -18,8 +18,12 @@ public class ChangeNameTransaction implements Transaction {
 	public void execute() {
 		Employee e = PayrollDatabase.getEmployee(empId);
 		if (e != null) {
-			e.setName(newName);
+			doChange(e);
 		}
+	}
+
+	private void doChange(Employee e) {
+		e.setName(newName);
 	}
 
 }

@@ -18,8 +18,12 @@ public class ChangeAddressTransaction implements Transaction {
 	public void execute() {
 		Employee e = PayrollDatabase.getEmployee(empId);
 		if (e != null) {
-			e.setAddress(newAddress);
+			doChange(e);
 		}
+	}
+
+	private void doChange(Employee e) {
+		e.setAddress(newAddress);
 	}
 
 }
