@@ -2,44 +2,41 @@ package payroll;
 
 public class Paycheck {
 
-	public Object getEmpId() {
-		// TODO Auto-generated method stub
-		return null;
+	private int empId;
+	private String name;
+	private double amount;
+	private String disposition;
+
+	public int getEmpId() {
+		return empId;
 	}
 
-	public Object getName() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getName() {
+		return name;
 	}
 
 	public double getAmount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return amount;
 	}
 
-	public Object getDisposition() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getDisposition() {
+		return disposition;
 	}
 
 	public void setEmpId(int empId) {
-		// TODO Auto-generated method stub
-		
+		this.empId = empId;
 	}
 
 	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
+		this.name = name;
 	}
 
 	public void setAmount(double amount) {
-		// TODO Auto-generated method stub
-		
+		this.amount = amount;
 	}
 
 	public void setDisposition(String disposition) {
-		// TODO Auto-generated method stub
-		
+		this.disposition = disposition;
 	}
 
 }
