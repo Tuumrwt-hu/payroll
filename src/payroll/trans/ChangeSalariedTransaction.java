@@ -5,8 +5,11 @@ import payroll.Transaction;
 
 public class ChangeSalariedTransaction extends ChangeEmployeeTransaction implements Transaction {
 
+	private double salary;
+
 	public ChangeSalariedTransaction(int empId, double salary) {
-		// TODO Auto-generated constructor stub
+		super(empId);
+		this.salary = salary;
 	}
 
 	@Override
