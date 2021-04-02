@@ -4,8 +4,12 @@ import payroll.Transaction;
 
 public class ChangeAddressTransaction implements Transaction {
 
+	private int empId;
+	private String newAddress;
+
 	public ChangeAddressTransaction(int empId, String newAddress) {
-		// TODO Auto-generated constructor stub
+		this.empId = empId;
+		this.newAddress = newAddress;
 	}
 
 	@Override
