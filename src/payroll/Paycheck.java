@@ -22,4 +22,24 @@ public class Paycheck {
 		return null;
 	}
 
+	public void setEmpId(int empId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAmount(double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDisposition(String disposition) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
