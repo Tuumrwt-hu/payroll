@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import payroll.Paycheck;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.PaydayTransaction;
 
