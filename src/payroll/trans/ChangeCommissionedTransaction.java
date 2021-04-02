@@ -2,6 +2,7 @@ package payroll.trans;
 
 import payroll.PaymentClassification;
 import payroll.Transaction;
+import payroll.classification.CommissionedClassification;
 
 public class ChangeCommissionedTransaction extends ChangeClassificationTransaction implements Transaction {
 
@@ -16,8 +17,7 @@ public class ChangeCommissionedTransaction extends ChangeClassificationTransacti
 
 	@Override
 	protected PaymentClassification getPaymentClassification() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CommissionedClassification(salary, commissionRate);
 	}
 
 }
