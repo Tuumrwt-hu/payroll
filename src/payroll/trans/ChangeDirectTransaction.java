@@ -1,11 +1,10 @@
 package payroll.trans;
 
-import payroll.Employee;
 import payroll.PaymentMethod;
 import payroll.Transaction;
 import payroll.method.DirectMethod;
 
-public class ChangeDirectTransaction extends ChangeEmployeeTransaction implements Transaction {
+public class ChangeDirectTransaction extends ChangeMethodTransaction implements Transaction {
 
 	private String bank;
 	private String account;
@@ -14,11 +13,6 @@ public class ChangeDirectTransaction extends ChangeEmployeeTransaction implement
 		super(empId);
 		this.bank = bank;
 		this.account = account;
-	}
-
-	@Override
-	protected void doChange(Employee e) {
-		e.setPaymentMethod(getMethod());
 	}
 
 	protected PaymentMethod getMethod() {
