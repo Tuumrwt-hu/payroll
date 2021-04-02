@@ -46,5 +46,25 @@ class ChangeEmployeeTests {
 		Employee employee = PayrollDatabase.getEmployee(empId);
 		assertEquals(newName, employee.getName());
 	}
+	
+	// Test for
+	// ChgEmp EmpId address “address”	更改雇员地址
+	@Test
+	void testChangeAddress() {
+		int empId = 5002;
+		String name = "Bill";
+		String address = "Home";
+		double salary = 3000.0;
+		
+		new AddSalariedEmployeeTransaction(empId, name, address, salary).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		String newAddress = "Bill's new home";
+		Transaction t = new ChangeAddressTransaction(empId, newAddress);
+		t.execute();
+		
+		Employee employee = PayrollDatabase.getEmployee(empId);
+		assertEquals(newAddress, employee.getAddress());
+	}
 
 }
