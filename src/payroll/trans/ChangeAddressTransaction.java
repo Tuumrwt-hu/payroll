@@ -22,7 +22,7 @@ public class ChangeAddressTransaction implements Transaction {
 		}
 	}
 
-	private void doChange(Employee e) {
+	protected void doChange(Employee e) {
 		e.setAddress(newAddress);
 	}
 
