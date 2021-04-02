@@ -4,8 +4,12 @@ import payroll.PaymentMethod;
 
 public class DirectMethod extends PaymentMethod {
 
+	private String bank;
+	private String account;
+
 	public DirectMethod(String bank, String account) {
-		// TODO Auto-generated constructor stub
+		this.bank = bank;
+		this.account = account;
 	}
 
 	public Object getBank() {
