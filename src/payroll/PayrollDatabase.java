@@ -19,4 +19,9 @@ public class PayrollDatabase {
 		employees.remove(empId);
 	}
 
+	public static Object listAllEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
