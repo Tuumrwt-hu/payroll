@@ -12,14 +12,12 @@ public class DirectMethod extends PaymentMethod {
 		this.account = account;
 	}
 
-	public Object getBank() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getBank() {
+		return bank;
 	}
 
-	public Object getAccount() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getAccount() {
+		return account;
 	}
 
 }
