@@ -3,6 +3,7 @@ package payroll.trans;
 import payroll.Employee;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
+import payroll.exception.NoSuchEmployeeException;
 
 public abstract class ChangeEmployeeTransaction implements Transaction {
 
@@ -22,6 +23,8 @@ public abstract class ChangeEmployeeTransaction implements Transaction {
 		Employee e = PayrollDatabase.getEmployee(empId);
 		if (e != null) {
 			doChange(e);
+		} else {
+			throw new NoSuchEmployeeException();
 		}
 	}
 
