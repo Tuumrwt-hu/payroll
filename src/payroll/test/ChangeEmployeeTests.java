@@ -19,6 +19,7 @@ import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
 import payroll.trans.ChangeAddressTransaction;
 import payroll.trans.ChangeCommissionedTransaction;
+import payroll.trans.ChangeDirectTransaction;
 import payroll.trans.ChangeHoldTransaction;
 import payroll.trans.ChangeHourlyTransaction;
 import payroll.trans.ChangeNameTransaction;
