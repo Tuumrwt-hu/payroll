@@ -50,4 +50,9 @@ public class Employee {
 		this.address = address;
 	}
 
+	public void pay(Paycheck paycheck) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
