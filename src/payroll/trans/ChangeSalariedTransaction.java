@@ -1,11 +1,10 @@
 package payroll.trans;
 
-import payroll.Employee;
 import payroll.PaymentClassification;
 import payroll.Transaction;
 import payroll.classification.SalariedClassification;
 
-public class ChangeSalariedTransaction extends ChangeEmployeeTransaction implements Transaction {
+public class ChangeSalariedTransaction extends ChangeClassificationTransaction implements Transaction {
 
 	private double salary;
 
@@ -15,10 +14,6 @@ public class ChangeSalariedTransaction extends ChangeEmployeeTransaction impleme
 	}
 
 	@Override
-	protected void doChange(Employee e) {
-		e.setPaymentClassification(getPaymentClassification());
-	}
-
 	protected PaymentClassification getPaymentClassification() {
 		return new SalariedClassification(salary);
 	}
