@@ -4,8 +4,10 @@ import payroll.PaymentMethod;
 
 public class MailMethod extends PaymentMethod {
 
-	public MailMethod(String mailAddress) {
-		// TODO Auto-generated constructor stub
+	private String address;
+
+	public MailMethod(String address) {
+		this.address = address;
 	}
 
 	public Object getAddress() {
