@@ -8,6 +8,7 @@ import payroll.Employee;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
+import payroll.trans.ChangeAddressTransaction;
 import payroll.trans.ChangeNameTransaction;
 
 //Test for
