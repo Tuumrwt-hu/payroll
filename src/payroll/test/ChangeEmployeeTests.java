@@ -23,6 +23,7 @@ import payroll.trans.ChangeCommissionedTransaction;
 import payroll.trans.ChangeDirectTransaction;
 import payroll.trans.ChangeHoldTransaction;
 import payroll.trans.ChangeHourlyTransaction;
+import payroll.trans.ChangeMailTransaction;
 import payroll.trans.ChangeNameTransaction;
 import payroll.trans.ChangeSalariedTransaction;
 
