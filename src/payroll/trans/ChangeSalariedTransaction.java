@@ -2,6 +2,7 @@ package payroll.trans;
 
 import payroll.Employee;
 import payroll.Transaction;
+import payroll.classification.SalariedClassification;
 
 public class ChangeSalariedTransaction extends ChangeEmployeeTransaction implements Transaction {
 
@@ -14,8 +15,7 @@ public class ChangeSalariedTransaction extends ChangeEmployeeTransaction impleme
 
 	@Override
 	protected void doChange(Employee e) {
-		// TODO Auto-generated method stub
-
+		e.setPaymentClassification(new SalariedClassification(salary));
 	}
 
 }
