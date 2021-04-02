@@ -5,8 +5,13 @@ import payroll.Transaction;
 
 public class ChangeDirectTransaction extends ChangeEmployeeTransaction implements Transaction {
 
+	private String bank;
+	private String account;
+
 	public ChangeDirectTransaction(int empId, String bank, String account) {
-		// TODO Auto-generated constructor stub
+		super(empId);
+		this.bank = bank;
+		this.account = account;
 	}
 
 	@Override
