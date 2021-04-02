@@ -20,4 +20,10 @@ public class DirectMethod extends PaymentMethod {
 		return account;
 	}
 
+	@Override
+	public String getDisposition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -32,4 +32,10 @@ public class CommissionedClassification extends PaymentClassification {
 		salesReceipts.put(sr.getDate(), sr);
 	}
 
+	@Override
+	public double calculatePay() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

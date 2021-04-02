@@ -26,4 +26,10 @@ public class HourlyClassification extends PaymentClassification {
 		timeCards.put(tc.getDate(), tc);
 	}
 
+	@Override
+	public double calculatePay() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

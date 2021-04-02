@@ -14,4 +14,10 @@ public class MailMethod extends PaymentMethod {
 		return address;
 	}
 
+	@Override
+	public String getDisposition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

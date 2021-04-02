@@ -14,4 +14,10 @@ public class SalariedClassification extends PaymentClassification {
 		return salary;
 	}
 
+	@Override
+	public double calculatePay() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
