@@ -8,10 +8,13 @@ public abstract class ChangeEmployeeTransaction implements Transaction {
 
 	protected int empId;
 
-	protected abstract void doChange(Employee e);
-
 	public ChangeEmployeeTransaction() {
 		super();
+	}
+	
+	public ChangeEmployeeTransaction(int empId) {
+		super();
+		this.empId = empId;
 	}
 
 	@Override
@@ -21,5 +24,7 @@ public abstract class ChangeEmployeeTransaction implements Transaction {
 			doChange(e);
 		}
 	}
+
+	protected abstract void doChange(Employee e);
 
 }
