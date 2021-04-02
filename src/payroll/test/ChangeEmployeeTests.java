@@ -201,5 +201,28 @@ class ChangeEmployeeTests {
 		assertEquals(bank, mm.getBank());
 		assertEquals(account, mm.getAccount());
 	}
+	
+	// Test for
+	// ChgEmp EmpId mail “address”	邮寄支票
+	@Test
+	void testChangeMailMethod() {
+		int empId = 5008;
+		String name = "Bill";
+		String address = "Home";
+		double hourlyRate = 12.5;
+		
+		new AddHourlyEmployeeTransaction(empId, name, address, hourlyRate).execute();
+		assertNotNull(PayrollDatabase.getEmployee(empId));
+		
+		String mailAddress = "Bill's home";
+		Transaction t = new ChangeMailTransaction(empId, mailAddress);
+		t.execute();
+		Employee employee = PayrollDatabase.getEmployee(empId);
+		assertNotNull(employee);
+		PaymentMethod pm = employee.getPaymentMethod();
+		assertTrue(pm instanceof MailMethod);
+		MailMethod mm = (MailMethod) pm;
+		assertEquals(mailAddress, mm.getAddress());
+	}
 
 }
