@@ -10,9 +10,8 @@ public class MailMethod extends PaymentMethod {
 		this.address = address;
 	}
 
-	public Object getAddress() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getAddress() {
+		return address;
 	}
 
 }
