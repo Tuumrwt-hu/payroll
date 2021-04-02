@@ -42,4 +42,8 @@ public class Employee {
 		this.paymentMethod = paymentMethod;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }
