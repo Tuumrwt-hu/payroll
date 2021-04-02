@@ -8,4 +8,14 @@ public class DirectMethod extends PaymentMethod {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Object getBank() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAccount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

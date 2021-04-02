@@ -14,6 +14,7 @@ import payroll.Transaction;
 import payroll.classification.CommissionedClassification;
 import payroll.classification.HourlyClassification;
 import payroll.classification.SalariedClassification;
+import payroll.method.DirectMethod;
 import payroll.method.HoldMethod;
 import payroll.trans.AddHourlyEmployeeTransaction;
 import payroll.trans.AddSalariedEmployeeTransaction;
