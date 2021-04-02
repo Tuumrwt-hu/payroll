@@ -6,7 +6,7 @@ import payroll.Transaction;
 
 public abstract class ChangeEmployeeTransaction implements Transaction {
 
-	protected int empId;
+	private int empId;
 
 	public ChangeEmployeeTransaction() {
 		super();
