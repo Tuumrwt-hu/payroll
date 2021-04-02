@@ -4,7 +4,7 @@ import payroll.Employee;
 import payroll.PayrollDatabase;
 import payroll.Transaction;
 
-public abstract class ChangeEmployeeTransaction {
+public abstract class ChangeEmployeeTransaction implements Transaction {
 
 	protected int empId;
 
